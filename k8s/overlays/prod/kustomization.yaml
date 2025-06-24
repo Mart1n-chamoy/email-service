@@ -1,0 +1,6 @@
+resources:
+  - ../../base/deployment.yaml
+
+images:
+  - name: mart1n-chamoy/emailservice
+    newTag: v1.0.0
