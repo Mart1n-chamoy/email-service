@@ -17,6 +17,12 @@
 from concurrent import futures
 import argparse
 import os
+
+project_id = os.environ.get("PROJECT_ID")
+region = os.environ.get("REGION")
+sender_id = os.environ.get("SENDER_ID")
+from_address = os.environ.get("FROM_ADDRESS")
+
 import sys
 import time
 import grpc
@@ -64,7 +70,13 @@ class EmailService(BaseEmailService):
 
   @staticmethod
   def send_email(client, email_address, content):
-    response = client.send_message(
+    
+          project_id = os.environ.get("PROJECT_ID")
+          region = os.environ.get("REGION")
+          sender_id = os.environ.get("SENDER_ID")
+          from_address = os.environ.get("FROM_ADDRESS")
+    
+          response = client.send_message(
       sender = client.sender_path(project_id, region, sender_id),
       envelope_from_authority = '',
       header_from_authority = '',
@@ -80,7 +92,7 @@ class EmailService(BaseEmailService):
         "html_body": content
       }
     )
-    logger.info("Message sent: {}".format(response.rfc822_message_id))
+          logger.info("Message sent: {}".format(response.rfc822_message_id))
 
   def SendOrderConfirmation(self, request, context):
     email = request.email
