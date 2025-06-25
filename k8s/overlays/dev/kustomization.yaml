@@ -1,5 +1,6 @@
 resources:
-  - ../../base/deployment.yaml
+  - https://raw.githubusercontent.com/Mart1n-chamoy/email-service/main/k8s/base/deployment.yaml
+  - https://raw.githubusercontent.com/Mart1n-chamoy/email-service/main/k8s/base/service.yaml
 
 images:
   - name: mart1n-chamoy/emailservice
