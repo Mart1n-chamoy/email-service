@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: emailservice
-          image: mart1n-chamoy/emailservice:latest
+          image: martin555/emailservice:latest
           ports:
             - containerPort: 8080
